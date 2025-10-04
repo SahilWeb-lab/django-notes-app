@@ -42,6 +42,7 @@ pipeline {
                 script {
                     docker_compose()
                 }
+                sh "docker compose down && docker compose up -d"
             }
         }
         
