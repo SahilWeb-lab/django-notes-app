@@ -1,10 +1,6 @@
 version : "3.3"
 services :
   web :
-    build:
-      context: .
-     # image : sahilmandal/notes-app:latest
+     image : sahilmandal/notes-app:latest
      ports :
-         - "8000:8000"
-
-         # Added a comment
+         - "8000:8000
