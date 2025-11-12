@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo "Code deploying start."
                 // sh "docker run -d -p 8000:8000 notes-app:latest"
-                sh "docker compose up -d"
+                sh "docker compose down && docker compose up -d"
                 echo "Code deploying finish."
             }
         }
