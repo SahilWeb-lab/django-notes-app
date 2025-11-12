@@ -1,9 +1,6 @@
 version : "3.3"
 services :
   web :
-     # image : "sahilmandal/notes-app:latest"
-     build:
-       context: .
+     image : "sahilmandal/notes-app:latest"
      ports :
          - "8000:8000"
-# This is just testing comment
