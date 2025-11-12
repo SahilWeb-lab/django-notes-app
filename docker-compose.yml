@@ -1,6 +1,8 @@
 version : "3.3"
 services :
   web :
-     image : "sahilmandal/notes-app:latest"
+     # image : "sahilmandal/notes-app:latest"
+     build:
+       context: .
      ports :
          - "8000:8000"
