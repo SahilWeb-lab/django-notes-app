@@ -1,6 +1,6 @@
 @Library("Shared") _
 pipeline {
-    agent { label "vinod" }
+    agent any 
     
     stages {
         stage("Hello") {
@@ -10,7 +10,6 @@ pipeline {
                 }
             }
         }
-        
         stage("Code") {
             steps {
                 script {
@@ -21,24 +20,23 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    docker_build("sahilmandal","notes-app", "latest")
+                    docker_build("sahilmandal", "notes-app", "latest")
                 }
             }
         }
-        stage("Push to docker hub") {
-          steps {
-              script {
-                  docker_push("notes-app", "latest")
-              }
-              echo "Pushing finshed to docker hub."
-          }
+        stage("Push image to docker hub") {
+            steps {
+                script {
+                    docker_push("notes-app", "latest")
+                }
+            }
         }
         stage("Deploy") {
             steps {
-                echo "Code deploying start."
+                echo "Deploying started..."
                 // sh "docker run -d -p 8000:8000 notes-app:latest"
                 sh "docker compose up -d"
-                echo "Code deploying finish."
+                echo "Delploying finished..."
             }
         }
     }
